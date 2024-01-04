@@ -19,6 +19,15 @@ up or consuming them
 - snow drop (white flower)
 - waterlily
 
+## In-game settings
+
+`#respawn_delay_in_seconds` - integer variable that holds the amount of seconds
+that need to pass for restart to happen. Default value is 120.
+
+## TODO
+
+- add a growth animation
+
 ## Credits
 
 respawner icon was made using this image: https://www.freepngimg.com/icon/72725-reuse-icons-symbol-recycling-computer-recycle

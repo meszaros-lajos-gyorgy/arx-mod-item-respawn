@@ -3,8 +3,10 @@ on init {
   setinteractivity none
   collision off
 
-  set §respawn_when -1
+  set §respawn_started_at -1
   set £item_to_be_spawned "none"
+
+  set #respawn_delay_in_seconds 120
 
   accept
 }
@@ -23,9 +25,7 @@ on enable {
     accept
   }
 
-  set §respawn_when ^gameseconds
-  // add 2 minutes worth of seconds to the current in-game time
-  inc §respawn_when 10 // 120
+  set §respawn_started_at ^gameseconds
 
   accept
 }
@@ -36,15 +36,18 @@ on main {
     accept
   }
 
-  if (§respawn_when == -1) {
+  if (§respawn_started_at == -1) {
     accept
   }
+
+  set §respawn_when §respawn_started_at
+  inc §respawn_when #respawn_delay_in_seconds
 
   if (^gameseconds < §respawn_when) {
     accept
   }
 
-  set §respawn_when -1
+  set §respawn_started_at -1
 
   spawn item ~£item_to_be_spawned~ self
   sendevent set_respawner_id ^last_spawned ~^me~
