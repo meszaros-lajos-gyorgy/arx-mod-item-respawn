@@ -25,7 +25,7 @@ on enable {
 
   set §respawn_when ^gameseconds
   // add 2 minutes worth of seconds to the current in-game time
-  inc §respawn_when 120
+  inc §respawn_when 10 // 120
 
   accept
 }

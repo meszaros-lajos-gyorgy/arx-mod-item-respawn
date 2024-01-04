@@ -1,29 +1,32 @@
 ON INIT {
- SET_SHADOW OFF
- SETNAME [description_mushroom]
+ SETNAME [description_fern]
  SET_MATERIAL CLOTH
  SET_GROUP PROVISIONS
- SET_GROUP FOOD
- SET_PRICE 8
+ SET_PRICE 20
  PLAYERSTACKSIZE 10
  SET_STEAL 50
- SET_FOOD 2
- SET_WEIGHT 0
- SET §scale 80
- SET §rnd ~^RND_40~
- INC §scale §rnd
- SETSCALE §scale
+SET_WEIGHT 0
  ACCEPT
 }
 
-ON INVENTORYUSE {
- PLAY "eat"
- SPECIALFX HEAL 1
- EATME
+ON CUSTOM {
+ if (^$PARAM1 == "DIE" ) {
+  DESTROY SELF
+  ACCEPT
+ }
+ACCEPT
+}
 
- goto init_respawn
+ON COMBINE {
+  IF (^$param1 ISCLASS "CRUSHER") {
+    PLAY "CRUSHING"
+    REPLACEME \\magic\\Powder_fern\\Powder_fern
 
- ACCEPT
+    goto init_respawn
+
+    ACCEPT
+  }
+  ACCEPT
 }
 
 // ---------------------------
@@ -46,7 +49,7 @@ on game_ready {
 
   spawn item special/respawner/respawner self
   set £respawner_id ^last_spawned
-  sendevent set_respawn_item £respawner_id "provisions/mushroom/food_mushroom"
+  sendevent set_respawn_item £respawner_id "magic/fern/fern"
   accept
 }
 

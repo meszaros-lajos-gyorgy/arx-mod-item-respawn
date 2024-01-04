@@ -1,14 +1,23 @@
 # Item Respawner mod for Arx Fatalis
 
-A simple Arx Fatalis mod that makes items respawn in 2 minutes after picking them
+A simple Arx Fatalis mod that makes plants respawn in 2 minutes after picking them
 up or consuming them
 
 **Compatible with
 [Arx Libertatis Mod Manager](https://github.com/fredlllll/ArxLibertatisModManager)**
 
-## Supported items
+## Supported plants
 
-- mushrooms
+- mushroom
+- garlic
+- leek
+- carrot
+
+- fern
+- medicinal herb (purple flower)
+- morning glory (blue flower)
+- snow drop (white flower)
+- waterlily
 
 ## Credits
 
